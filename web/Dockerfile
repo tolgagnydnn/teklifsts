@@ -7,12 +7,11 @@ RUN yarn global add @vue/cli -g
 
 WORKDIR /app/web
 
-RUN apt-get autoremove -y \
-    && apt-get autoclean -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+COPY package*.json ./
 
-#COPY . .
+RUN npm install
+
+COPY . .
 
 EXPOSE 8080
 
