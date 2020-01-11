@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    web:
+        build: ./web
+        ports:
+            - 8080:8080
+        volumes:
+            - ./web:/app/web
+
+    #api:
+     #   build: ./api
+      #  ports:
+       #     - 8090:8090
+        #volumes:
+         #   - ./api:/go/src/api
