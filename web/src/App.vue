@@ -9,16 +9,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Pano
-                <span class="sr-only">(current)</span>
-              </a>
+            <li class="nav-item">
+              <router-link :to="{name: 'pano'}" class="nav-link" exact>Pano</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/teklif/liste">Teklifler</a>
+              <router-link to="/teklif/liste" class="nav-link" exact>Teklif</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/musteri/liste">Müşteriler</a>
+              <router-link to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">İletişim</a>
