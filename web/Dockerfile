@@ -5,11 +5,11 @@ RUN apt-get -y update \
 
 RUN yarn add @vue/cli -g
 
-WORKDIR /app/web
+WORKDIR /app/web/
 
-COPY package.json /app/web
+COPY package.json .
 
-COPY yarn.lock /app/web
+COPY yarn.lock .
 
 RUN yarn install
 

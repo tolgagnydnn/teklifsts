@@ -9,9 +9,9 @@ services:
             - ./web:/app/web
             - /app/web/node_modules
 
-    #api:
-     #   build: ./api
-      #  ports:
-       #     - 8090:8090
-        #volumes:
-         #   - ./api:/go/src/api
+    api:
+        build: ./api
+        ports:
+            - 8090:8090
+        volumes:
+            - ./api:/go/src/api
