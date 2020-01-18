@@ -1,0 +1,3 @@
+# TeklifSTS
+
+Teklif hazırlama sistemi
