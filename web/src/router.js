@@ -5,6 +5,7 @@ import Pano from './components/Pano.vue'
 import TeklifListe from './components/Teklif/Liste.vue'
 import MusteriListe from './components/Musteri/Liste.vue'
 import Profil from './components/Profil.vue'
+import Login from './components/Login.vue'
 
 Vue.use(Router)
 
@@ -28,7 +29,13 @@ const routes = [
       path:'/profil',
       name:'profil',
       component:Profil
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:Login
     }
+
 ]
 
 

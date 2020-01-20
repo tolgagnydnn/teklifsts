@@ -56,3 +56,67 @@
   .profile .form-control:focus {
     box-shadow: none;
   }
+
+
+    .login {
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform:translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .login form {
+      border:solid 1px #dddd;
+      padding: 1.5rem;
+    }
+
+    .login h1 {
+      margin-top: 15px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .login form .form-control {
+      max-width: 100%;
+      max-height: 32px;
+      padding: 9px 18px 10px 18px;
+      font-size: 13px;
+      resize: none;
+      border: none;
+      border: 1px solid #333;
+      border-radius: 0;
+      background: none;
+      color:#333;
+      border-left:none;
+    }
+
+    .login form .input-group-text {
+      background: none;
+      border-right:none;
+    }
+    .login form .form-control:focus {
+      outline: 0;
+      box-shadow:none;
+    }
+
+    .login form .input-group-prepend {
+      margin-right: 0;
+      border:solid 1px;
+      border-color:#333;
+      border-right: none;
+    }
+
+    .login form .sifre {
+      font-size: 10px;
+      color:#333;
+    }
+
+    .login form .loginBtn  button{
+      background: green;
+      border:none;
+      outline: none;
+      color: white;
+      padding: 5px 15px;
+      font-size: 13px;
+    }
