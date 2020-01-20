@@ -19,3 +19,13 @@
 .router-link-active {
   color: aqua;
 }
+  .acikTeklifler p  {
+    font-size: 20px;
+    border-bottom:solid 1px #000;
+    padding-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .acikTeklifler thead {
+    background: #ddd;
+  }
