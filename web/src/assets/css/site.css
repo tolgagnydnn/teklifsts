@@ -29,3 +29,30 @@
   .acikTeklifler thead {
     background: #ddd;
   }
+
+  .profile label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .profile .title p {
+    font-size: 20px;
+    color:#333;
+    font-weight: 600;
+    padding-bottom: 7px;
+    border-bottom:solid 1px #ddd;
+  }
+
+  .profile .form-control {
+    height: 30px;
+    padding: 5px 18px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+
+  .profile .form-control:focus {
+    box-shadow: none;
+  }

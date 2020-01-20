@@ -4,24 +4,30 @@ import Router from 'vue-router'
 import Pano from './components/Pano.vue'
 import TeklifListe from './components/Teklif/Liste.vue'
 import MusteriListe from './components/Musteri/Liste.vue'
+import Profil from './components/Profil.vue'
 
 Vue.use(Router)
 
 const routes = [
-    { 
-        path: '/', 
-        name: 'pano', 
+    {
+        path: '/',
+        name: 'pano',
         component: Pano,
     },
-    { 
+    {
         path: '/teklif/liste',
-        name: "teklif", 
+        name: "teklif",
         component: TeklifListe,
     },
-    { 
-        path: '/musteri/liste', 
+    {
+        path: '/musteri/liste',
         name: 'musteri',
         component: MusteriListe,
+    },
+    {
+      path:'/profil',
+      name:'profil',
+      component:Profil
     }
 ]
 

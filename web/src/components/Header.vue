@@ -18,6 +18,9 @@
             <router-link to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/profil" class="nav-link" exact>Profil</router-link>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#">İletişim</a>
           </li>
         </ul>
