@@ -1,0 +1,28 @@
+.profile {
+  padding-top: 25px;
+  &__title {
+    @include mainTitle;
+    padding-bottom: 8px;
+  }
+  &__edit {
+    float: right;
+    background: $black;
+    color:$white;
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+  &__info, &__password {
+    padding-top: 1rem;
+  }
+  &__itemtitle {
+    @include mainTitle;
+    width: 150px;
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: top;
+    font-size: 14px;
+  }
+  &__itemcontent {
+    @include mainContent;
+  }
+}
