@@ -14,7 +14,7 @@
                   <i class="fas fa-envelope"> </i>
                 </div>
               </span>
-              <input v-model.trim="kullanicigiris.eposta" class="form-control" type="email" autocomplete="off" placeholder="Email Giriniz" />
+              <input v-model.trim="kullanicigiris.eposta" class="form-control" type="email" placeholder="Email Giriniz" />
             </div>
           </div>
           <div class="form-group py-2">
