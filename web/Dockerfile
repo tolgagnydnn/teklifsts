@@ -5,6 +5,8 @@ RUN apt-get -y update \
 
 RUN yarn add @vue/cli -g
 
+RUN mkdir -p /app/web
+
 WORKDIR /app/web/
 
 COPY package.json .
