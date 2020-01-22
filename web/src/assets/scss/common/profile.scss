@@ -3,13 +3,27 @@
   &__title {
     @include mainTitle;
     padding-bottom: 8px;
+    font-size: 22px;
   }
   &__edit {
     float: right;
+    padding-bottom: 12px;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    text-decoration: none;
+    user-select: none;
+    letter-spacing: 1px;
+    color: white;
+    padding: 6px 22px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-out;
     background: $black;
-    color:$white;
-    padding: 5px 12px;
-    cursor: pointer;
+    cursor:pointer;
+    &:hover {
+      box-shadow: 0px 0px 6px $black;
+    }
   }
   &__info, &__password {
     padding-top: 1rem;
