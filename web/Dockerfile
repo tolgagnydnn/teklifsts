@@ -3,17 +3,15 @@ FROM node:13-slim
 RUN apt-get -y update \
 	&& apt-get install -y git
 
-RUN yarn add @vue/cli -g
+RUN npm install @vue/cli -g
 
 RUN mkdir -p /app/web
 
-WORKDIR /app/web/
+WORKDIR /app/web
 
-COPY package.json .
+COPY package*.json ./
 
-COPY yarn.lock .
-
-RUN yarn install
+RUN npm install
 
 COPY . .
 
@@ -22,4 +20,4 @@ EXPOSE 8080
 # USER node
 
 # switch to npm if you chose it as package manager
-CMD ["yarn", "serve"]
+CMD ["npm", "run", "serve"]
