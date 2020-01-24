@@ -69,4 +69,15 @@
     padding: 5px 15px;
     font-size: 13px;
   }
+  &__register{
+    margin-top:70px;
+    text-align: center;
+    a {
+      @include mainContent;
+      font-size: 13px;
+      &:hover {
+        color: $green;
+      }
+    }
+  }
 }

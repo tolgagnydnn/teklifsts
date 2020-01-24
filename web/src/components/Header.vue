@@ -9,16 +9,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link :to="{name: 'pano'}" class="nav-link" exact>Pano</router-link>
+            <router-link active-class="active"  :to="{name: 'pano'}" class="nav-link" exact>Pano</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/teklif/liste" class="nav-link" exact>Teklif</router-link>
+            <router-link active-class="active"  to="/teklif/liste" class="nav-link" exact>Teklif</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
+            <router-link active-class="active"  to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/profil" class="nav-link" exact>Profil</router-link>
+            <router-link active-class="active" to="/profil" class="nav-link" exact>Profil</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">İletişim</a>

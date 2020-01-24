@@ -14,9 +14,7 @@ const routes = [
     {
       path:'/',
       name:'login',
-      components:{
-        default:Login
-      }
+      component:Login
     },
     {
         path: '/pano',
@@ -48,14 +46,6 @@ const routes = [
       component:Profil,
       components:{
         default:Profil,
-        "headertop":Header
-      }
-    },
-    {
-      path:'/login',
-      name:'login',
-      components:{
-        default:Login,
         "headertop":Header
       }
     }
