@@ -32,7 +32,7 @@
           </div>
 
           <div class="login__btn">
-            <button type="submit"> Giriş Yap </button>
+            <button type="submit" @click="successLogin"> Giriş Yap </button>
           </div>
         </form>
       </div>
@@ -51,6 +51,11 @@
           eposta:"",
           sifre:""
         }
+      }
+    },
+    methods:{
+      successLogin(){
+        this.$router.push({name:"pano"});
       }
     }
   }
