@@ -1,5 +1,4 @@
 <template>
-
 <section class="profile">
   <div class="container">
     <div class="row">
@@ -37,7 +36,7 @@
           <span class="profile__itemtitle"> Mevcut Şifreniz: </span>
           <span class="profile__itemcontent"> *******  </span>
         </div>
-    </div>
+     </div>
 
    </div>
   </div>
