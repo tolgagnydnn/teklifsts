@@ -4,8 +4,10 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
         <div>
-          <span class="profile__title"> Kişisel Bilgilerim </span>
-          <span class="profile__edit"> Düzenle </span>
+          <span class="profile__title">Kişisel Bilgilerim</span>
+          <span class="profile__edit">
+            <button @click="duzenle()">Düzenle</button>
+          </span>
           <hr>
         </div>
         <div class="profile__info">
@@ -37,7 +39,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
         <div>
           <span class="profile__title"> Şifre Bilgilerim </span>
-          <span class="profile__edit"> Düzenle </span>
+          <span class="profile__edit">Düzenle</span>
           <hr>
         </div>
         <div class="profile__password">
@@ -59,11 +61,29 @@ export default {
   data() {
     return {
       profil: {
+        id: null,
+        eposta: null,
         adi: null,
         soyadi: null,
-        eposta: null,
         telefon: null
       }
+    }
+  },
+  methods: {
+    duzenle: function() {
+      console.log(this.profil);
+      fetch("http://127.0.0.1:8090/v1/kullanici/ekle", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        mode: 'cors',
+        cache: 'default',
+        body: JSON.stringify({"id": this.profil.id})
+      })
+      .then((res) => { return res.json() })
+      .then((data) => { console.log(data) })
     }
   },
   created: function() {
