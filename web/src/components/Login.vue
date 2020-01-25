@@ -2,6 +2,12 @@
 
   <section class="login">
   <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
+            <h2>TeklifSTS<br><h4>Kolay Teklif Hazırlama Sistemi</h4></h2>
+        </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
         <form class="login__form">
@@ -43,6 +49,7 @@
       </div>
     </div>
   </div>
+  <p style="text-align:center;margin-top:10px">Sürüm: 0.3.1</p>
 </section>
 </template>
 
