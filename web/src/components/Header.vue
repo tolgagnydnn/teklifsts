@@ -2,7 +2,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mb-3">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <router-link to="/pano" class="navbar-brand">TeklifSTS</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,11 +18,19 @@
             <router-link active-class="active"  to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
           </li>
           <li class="nav-item">
-            <router-link active-class="active" to="/profil" class="nav-link" exact>Profil</router-link>
+            <a class="nav-link" href="#">Hakkımızda</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">İletişim</a>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Hesabım
+            </a>
+            <div class="dropdown-menu">
+              <router-link to="/profil" class="dropdown-item">Profil</router-link>
+              <router-link to="/" class="dropdown-item">Çıkış</router-link>
+            </div>
           </li>
+
         </ul>
       </div>
     </div>
