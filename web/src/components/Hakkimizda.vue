@@ -16,6 +16,6 @@
 
 <script>
 export default {
-  name: 'Pano',
+  name: 'Hakkimizda',
 }
 </script>

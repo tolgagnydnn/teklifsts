@@ -9,20 +9,28 @@
           <hr>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle"> E-Postanız: </span>
-          <span class="profile__itemcontent"> tolgagnydnn@gmail.com </span>
+          <span class="profile__itemtitle">E-Postanız:</span>
+          <span class="profile__itemcontent">
+            <input type="text" v-model="profil.eposta">
+          </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle"> Adınız: </span>
-          <span class="profile__itemcontent"> Tolga </span>
+          <span class="profile__itemtitle">Adınız:</span>
+          <span class="profile__itemcontent">
+            <input type="text" v-model="profil.adi">
+          </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle"> Soyadınız: </span>
-          <span class="profile__itemcontent"> Günaydın </span>
+          <span class="profile__itemtitle">Soyadınız:</span>
+          <span class="profile__itemcontent">
+            <input type="text" v-model="profil.soyadi">
+          </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle"> Telefon Numaranız: </span>
-          <span class="profile__itemcontent"> 999 999 99 99 </span>
+          <span class="profile__itemtitle">Telefon Numaranız:</span>
+          <span class="profile__itemcontent">
+            <input type="text" v-model="profil.telefon">
+          </span>
         </div>
       </div>
 
@@ -46,5 +54,28 @@
 
 
 <script>
-
+export default {
+  name: 'Profil',
+  data() {
+    return {
+      profil: {
+        adi: null,
+        soyadi: null,
+        eposta: null,
+        telefon: null
+      }
+    }
+  },
+  created: function() {
+    fetch("http://127.0.0.1:8090/v1/kullanici/bilgi/1")
+    .then((res) => { return res.json(); })
+    .then((res) => {
+      if (res.status) {
+        this.profil = res.data;
+      } else {
+        alert(res.data.error);
+      }
+    })
+  }
+}
 </script>
