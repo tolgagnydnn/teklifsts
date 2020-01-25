@@ -34,6 +34,15 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["api/controllers:KullaniciController"] = append(beego.GlobalControllerRouter["api/controllers:KullaniciController"],
+        beego.ControllerComments{
+            Method: "Giris",
+            Router: `/giris`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
     beego.GlobalControllerRouter["api/controllers:TeklifController"] = append(beego.GlobalControllerRouter["api/controllers:TeklifController"],
         beego.ControllerComments{
             Method: "GetAll",

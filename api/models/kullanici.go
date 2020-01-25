@@ -2,17 +2,24 @@ package models
 
 // Kullanici model
 type Kullanici struct {
-	ID     int
-	Eposta string
-	Parola string
-	Adi    string
-	Soyadi string
+	ID     int `json:"id"`
+	Eposta string `json:"eposta"`
+	Parola string `json:"parola"`
+	Adi    string `json:"adi"`
+	Soyadi string `json:"soyadi"`
+}
+
+// JSONResult model
+type JSONResult struct {
+	Status bool `json:"status"`
+	Error string `json:"error"`
+	Data interface{} `json:"data"`
 }
 
 // KullaniciBilgi function
-func KullaniciBilgi() Kullanici {
+func KullaniciBilgi(kullaniciID int) Kullanici {
 	var k = Kullanici{
-		ID:     1,
+		ID:     kullaniciID,
 		Eposta: "zafercelenk@gmail.com",
 		Parola: "demo",
 		Adi:    "Zafer",
