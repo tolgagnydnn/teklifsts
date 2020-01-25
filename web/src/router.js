@@ -7,6 +7,7 @@ import MusteriListe from './components/Musteri/Liste.vue'
 import Profil from './components/Profil.vue'
 import Login from './components/Login.vue'
 import Header from './components/Header.vue'
+import Hakkimizda from './components/Hakkimizda.vue'
 
 Vue.use(Router)
 
@@ -48,8 +49,16 @@ const routes = [
         default:Profil,
         "headertop":Header
       }
+    },
+    {
+        path: '/hakkimizda',
+        name: 'hakkimizda',
+        component: Hakkimizda,
+        components: {
+            default: Hakkimizda,
+            "headertop": Header
+        }
     }
-
 ]
 
 

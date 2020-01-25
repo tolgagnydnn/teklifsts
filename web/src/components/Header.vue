@@ -18,7 +18,7 @@
             <router-link active-class="active"  to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Hakkımızda</a>
+              <router-link active-class="active"  to="/hakkimizda" class="nav-link" exact>Hakkımızda</router-link>
           </li>
           <!-- Dropdown -->
           <li class="nav-item dropdown">
