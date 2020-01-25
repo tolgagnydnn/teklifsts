@@ -6,6 +6,7 @@ import TeklifListe from './components/Teklif/Liste.vue'
 import MusteriListe from './components/Musteri/Liste.vue'
 import Profil from './components/Profil.vue'
 import Login from './components/Login.vue'
+import Header from './components/Header.vue'
 
 Vue.use(Router)
 
@@ -18,27 +19,35 @@ const routes = [
     {
         path: '/pano',
         name: 'pano',
-        component: Pano,
+        components:{
+          default:Pano,
+          "headertop":Header
+        }
     },
     {
         path: '/teklif/liste',
         name: "teklif",
-        component: TeklifListe,
+        components:{
+          default:TeklifListe,
+          "headertop":Header
+        }
     },
     {
         path: '/musteri/liste',
         name: 'musteri',
-        component: MusteriListe,
+        components:{
+          default:MusteriListe,
+          "headertop":Header
+        }
     },
     {
       path:'/profil',
       name:'profil',
-      component:Profil
-    },
-    {
-      path:'/login',
-      name:'login',
-      component:Login
+      component:Profil,
+      components:{
+        default:Profil,
+        "headertop":Header
+      }
     }
 
 ]

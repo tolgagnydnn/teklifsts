@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <appHeader> </appHeader>
-    <div class="container">
-        <router-view> </router-view>
-    </div>
+
+    <router-view name="headertop"></router-view>
+    <router-view> </router-view>
+
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-export default {
-  name: 'app',
-  components:{
-    "appHeader": Header
+  export default {
+    name: 'app'
   }
-}
 </script>
 
 <style lang="scss">

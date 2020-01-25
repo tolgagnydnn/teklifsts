@@ -34,6 +34,11 @@
           <div class="login__btn">
             <button type="submit" @click="successLogin"> Giriş Yap </button>
           </div>
+
+          <div class="login__register">
+            <a href="#"> Hemen Üye Olun </a>
+          </div>
+
         </form>
       </div>
     </div>
