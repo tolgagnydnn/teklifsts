@@ -14,7 +14,7 @@
                   <i class="fas fa-envelope"> </i>
                 </div>
               </span>
-              <input v-model.trim="kullanicigiris.eposta" class="login__input" type="email" placeholder="Email Giriniz" />
+              <input v-model.trim="login.eposta" class="login__input" type="email" placeholder="Email Giriniz" />
             </div>
           </div>
           <div class="form-group py-2">
@@ -24,7 +24,7 @@
                   <i class="fas fa-lock"> </i>
                 </div>
               </span>
-              <input v-model="kullanicigiris.sifre" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
+              <input v-model="login.sifre" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
             </div>
           </div>
           <div class="login__forgotpassword">
@@ -36,7 +36,7 @@
           </div>
 
           <div class="login__register">
-            <a href="#"> Hemen Üye Olun </a>
+            <a href="#" @click="register"> Hemen Üye Olun </a>
           </div>
 
         </form>
@@ -52,7 +52,7 @@
   export default{
     data(){
       return {
-        kullanicigiris:{
+        login:{
           eposta:"",
           sifre:""
         }
@@ -61,6 +61,9 @@
     methods:{
       successLogin(){
         this.$router.push({name:"pano"});
+      },
+      register(){
+        this.$router.push({name:"register"});
       }
     }
   }

@@ -7,7 +7,7 @@ import MusteriListe from './components/Musteri/Liste.vue'
 import Profil from './components/Profil.vue'
 import Login from './components/Login.vue'
 import Header from './components/Header.vue'
-
+import Register from './components/Register.vue'
 Vue.use(Router)
 
 const routes = [
@@ -15,6 +15,11 @@ const routes = [
       path:'/',
       name:'login',
       component:Login
+    },
+    {
+      path:'/register',
+      name:'register',
+      component:Register
     },
     {
         path: '/pano',
