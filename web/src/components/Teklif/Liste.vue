@@ -2,10 +2,8 @@
   <section class="teklifliste">
     <div class="container">
       <div class="row">
-          <div class="col-md-12 mb-5">
-              <span class="page-title">Teklif Listesi</span>
-          </div>
           <div class="col-md-12">
+              <h1> Teklif Listesi </h1>
               <div class="mb-2"><a href="#" class="btn btn-success">Teklif Ekle</a></div>
               <table class="table table-hover">
                   <thead>
