@@ -49,13 +49,14 @@
       </div>
     </div>
   </div>
-  <p style="text-align:center;margin-top:10px">Sürüm: 0.3.1</p>
+  <p style="text-align:center;margin-top:10px">Sürüm: {{ appVersion }}</p>
 </section>
 </template>
 
 
 
 <script>
+import packageJson from '../../package.json';
   export default{
     data(){
       return {
@@ -71,6 +72,11 @@
       },
       register(){
         this.$router.push({name:"register"});
+      }
+    },
+    computed: {
+      appVersion() {
+        return packageJson.version;
       }
     }
   }
