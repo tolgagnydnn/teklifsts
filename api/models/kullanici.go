@@ -7,6 +7,7 @@ type Kullanici struct {
 	Parola string `json:"parola"`
 	Adi    string `json:"adi"`
 	Soyadi string `json:"soyadi"`
+	Telefon string `json:"telefon"`
 }
 
 // JSONResult model
@@ -24,6 +25,7 @@ func KullaniciBilgi(kullaniciID int) Kullanici {
 		Parola: "demo",
 		Adi:    "Zafer",
 		Soyadi: "Çelenk",
+		Telefon: "+90 544 245 75 99",
 	}
 
 	return k
