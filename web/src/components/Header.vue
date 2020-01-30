@@ -9,16 +9,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link active-class="active"  :to="{name: 'pano'}" class="nav-link" exact>Pano</router-link>
+            <router-link active-class="active" :to="{name: 'dashboard'}" class="nav-link" exact>Pano</router-link>
           </li>
           <li class="nav-item">
-            <router-link active-class="active"  to="/teklif/liste" class="nav-link" exact>Teklif</router-link>
+            <router-link active-class="active"  to="/tender/list" class="nav-link" exact>Teklif</router-link>
           </li>
           <li class="nav-item">
-            <router-link active-class="active"  to="/musteri/liste" class="nav-link" exact>Müşteri</router-link>
+            <router-link active-class="active"  to="/customer/list" class="nav-link" exact>Müşteri</router-link>
           </li>
           <li class="nav-item">
-              <router-link active-class="active"  to="/hakkimizda" class="nav-link" exact>Hakkımızda</router-link>
+              <router-link active-class="active"  to="/about" class="nav-link" exact>Hakkımızda</router-link>
           </li>
           <!-- Dropdown -->
           <li class="nav-item dropdown">
@@ -26,7 +26,7 @@
               Hesabım
             </a>
             <div class="dropdown-menu">
-              <router-link to="/profil" class="dropdown-item">Profil</router-link>
+              <router-link to="/profile" class="dropdown-item">Profil</router-link>
               <router-link to="/" class="dropdown-item">Çıkış</router-link>
             </div>
           </li>

@@ -56,6 +56,8 @@
 
 
 <script>
+import config from "../../vue.config.js"
+
 export default {
   name: 'Profil',
   data() {
@@ -72,7 +74,7 @@ export default {
   methods: {
     duzenle: function() {
       console.log(this.profil);
-      fetch("http://127.0.0.1:8090/v1/kullanici/ekle", {
+      fetch(config.apiRoot + "kullanici/ekle", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -87,7 +89,7 @@ export default {
     }
   },
   created: function() {
-    fetch("http://127.0.0.1:8090/v1/kullanici/bilgi/1")
+    fetch(config.apiRoot + "kullanici/bilgi/1")
     .then((res) => { return res.json(); })
     .then((res) => {
       if (res.status) {

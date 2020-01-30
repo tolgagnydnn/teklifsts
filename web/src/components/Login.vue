@@ -57,7 +57,7 @@
 
 <script>
 import packageJson from '../../package.json';
-  export default{
+export default{
     data(){
       return {
         login:{
@@ -68,7 +68,7 @@ import packageJson from '../../package.json';
     },
     methods:{
       successLogin(){
-        this.$router.push({name:"pano"});
+        this.$router.push({name:"dashboard"});
       },
       register(){
         this.$router.push({name:"register"});
@@ -79,5 +79,5 @@ import packageJson from '../../package.json';
         return packageJson.version;
       }
     }
-  }
+}
 </script>

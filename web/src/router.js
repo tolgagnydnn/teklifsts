@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Pano from './components/Pano.vue'
-import TeklifListe from './components/Teklif/Liste.vue'
-import MusteriListe from './components/Musteri/Liste.vue'
-import Profil from './components/Profil.vue'
+import Dashboard from './components/Dashboard.vue'
+import TenderList from './components/tender/List.vue'
+import CustomerList from './components/customer/List.vue'
+import Profile from './components/Profile.vue'
 import Login from './components/Login.vue'
 import Header from './components/Header.vue'
 import Register from './components/Register.vue'
-import Hakkimizda from './components/Hakkimizda.vue'
+import About from './components/About.vue'
 
 Vue.use(Router)
 
@@ -24,44 +24,44 @@ const routes = [
       component:Register
     },
     {
-        path: '/pano',
-        name: 'pano',
+        path: '/dashboard',
+        name: 'dashboard',
         components:{
-          default:Pano,
+          default:Dashboard,
           "headertop":Header
         }
     },
     {
-        path: '/teklif/liste',
-        name: "teklif",
+        path: '/tender/list',
+        name: "tender",
         components:{
-          default:TeklifListe,
+          default:TenderList,
           "headertop":Header
         }
     },
     {
-        path: '/musteri/liste',
-        name: 'musteri',
+        path: '/customer/list',
+        name: 'customer',
         components:{
-          default:MusteriListe,
+          default:CustomerList,
           "headertop":Header
         }
     },
     {
-      path:'/profil',
-      name:'profil',
-      component:Profil,
+      path:'/profile',
+      name:'profile',
+      component:Profile,
       components:{
-        default:Profil,
+        default:Profile,
         "headertop":Header
       }
     },
     {
-        path: '/hakkimizda',
-        name: 'hakkimizda',
-        component: Hakkimizda,
+        path: '/about',
+        name: 'about',
+        component: About,
         components: {
-            default: Hakkimizda,
+            default: About,
             "headertop": Header
         }
     }
