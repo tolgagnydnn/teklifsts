@@ -56,8 +56,6 @@
 
 
 <script>
-import config from "../../vue.config.js"
-
 export default {
   name: 'Profil',
   data() {
@@ -74,7 +72,7 @@ export default {
   methods: {
     duzenle: function() {
       console.log(this.profil);
-      fetch(config.apiRoot + "kullanici/ekle", {
+      fetch(process.env.VUE_APP_API + "kullanici/ekle", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -89,7 +87,7 @@ export default {
     }
   },
   created: function() {
-    fetch(config.apiRoot + "kullanici/bilgi/1")
+    fetch(process.env.VUE_APP_API + "kullanici/bilgi/1")
     .then((res) => { return res.json(); })
     .then((res) => {
       if (res.status) {
