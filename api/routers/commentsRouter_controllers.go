@@ -7,7 +7,16 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["api/controllers:KullaniciController"] = append(beego.GlobalControllerRouter["api/controllers:KullaniciController"],
+    beego.GlobalControllerRouter["api/controllers:TeklifController"] = append(beego.GlobalControllerRouter["api/controllers:TeklifController"],
+        beego.ControllerComments{
+            Method: "GetAll",
+            Router: `/`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["api/controllers:UserController"] = append(beego.GlobalControllerRouter["api/controllers:UserController"],
         beego.ControllerComments{
             Method: "Bilgi",
             Router: `/bilgi/:id`,
@@ -16,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api/controllers:KullaniciController"] = append(beego.GlobalControllerRouter["api/controllers:KullaniciController"],
+    beego.GlobalControllerRouter["api/controllers:UserController"] = append(beego.GlobalControllerRouter["api/controllers:UserController"],
         beego.ControllerComments{
             Method: "Duzenle",
             Router: `/duzenle`,
@@ -25,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api/controllers:KullaniciController"] = append(beego.GlobalControllerRouter["api/controllers:KullaniciController"],
+    beego.GlobalControllerRouter["api/controllers:UserController"] = append(beego.GlobalControllerRouter["api/controllers:UserController"],
         beego.ControllerComments{
             Method: "Ekle",
             Router: `/ekle`,
@@ -34,20 +43,11 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["api/controllers:KullaniciController"] = append(beego.GlobalControllerRouter["api/controllers:KullaniciController"],
+    beego.GlobalControllerRouter["api/controllers:UserController"] = append(beego.GlobalControllerRouter["api/controllers:UserController"],
         beego.ControllerComments{
-            Method: "Giris",
-            Router: `/giris`,
+            Method: "Login",
+            Router: `/login`,
             AllowHTTPMethods: []string{"post"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["api/controllers:TeklifController"] = append(beego.GlobalControllerRouter["api/controllers:TeklifController"],
-        beego.ControllerComments{
-            Method: "GetAll",
-            Router: `/`,
-            AllowHTTPMethods: []string{"get"},
             MethodParams: param.Make(),
             Filters: nil,
             Params: nil})

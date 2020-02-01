@@ -7,26 +7,26 @@ import (
 	"github.com/astaxie/beego"
 )
 
-// KullaniciController struct
-type KullaniciController struct {
+// UserController struct
+type UserController struct {
 	beego.Controller
 }
 
-// Giris function
-// @Title Giris
+// Login function
+// @Title Login
 // @Description Kullanicinin sisteme giris islemlerini yapar.
 // @Param body body models.Kullanici true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
-// @router /giris [post]
-func (c *KullaniciController) Giris() {
-	var kullanici models.Kullanici
-	json.Unmarshal(c.Ctx.Input.RequestBody, &kullanici)
+// @router /login [post]
+func (c *UserController) Login() {
+	var user models.User
+	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
 
 	var res models.JSONResult
-	if kullanici.Eposta == "demo@demo.com" && kullanici.Parola == "demo" {
+	if user.Email == "demo@demo.com" && user.Password == "demo" {
 		res.Status = true
 		res.Error = ""
-		res.Data = kullanici
+		res.Data = user
 	} else {
 		res.Status = false
 		res.Error = "Eposta adresi veya parola hatalı. Lütfen kontrol ederek tekrar deneyin."
@@ -43,14 +43,14 @@ func (c *KullaniciController) Giris() {
 // @Param body body models.Kullanici true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /duzenle [post]
-func (c *KullaniciController) Duzenle() {
-	var kullanici models.Kullanici
-	json.Unmarshal(c.Ctx.Input.RequestBody, &kullanici)
+func (c *UserController) Duzenle() {
+	var user models.User
+	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
 
 	var res models.JSONResult
 	res.Status = true
 	res.Error = ""
-	res.Data = kullanici
+	res.Data = user
 
 	c.Data["json"] = res
 	c.ServeJSON()
@@ -62,14 +62,14 @@ func (c *KullaniciController) Duzenle() {
 // @Param body body models.Kullanici true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /ekle [post]
-func (c *KullaniciController) Ekle() {
-	var kullanici models.Kullanici
-	json.Unmarshal(c.Ctx.Input.RequestBody, &kullanici)
+func (c *UserController) Ekle() {
+	var user models.User
+	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
 
 	var res models.JSONResult
 	res.Status = true
 	res.Error = ""
-	res.Data = kullanici
+	res.Data = user
 
 	c.Data["json"] = res
 	c.ServeJSON()
@@ -81,15 +81,15 @@ func (c *KullaniciController) Ekle() {
 // @Param id path string true "Kullanici ID bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /bilgi/:id [get]
-func (c *KullaniciController) Bilgi() {
-	var kullaniciID, _ = c.GetInt(":id")
+func (c *UserController) Bilgi() {
+	var userID, _ = c.GetInt(":id")
 
-	var kullanici = models.KullaniciBilgi(kullaniciID)
+	var user = models.GetUser(userID)
 
 	var res models.JSONResult
 	res.Status = true
 	res.Error = ""
-	res.Data = kullanici
+	res.Data = user
 
 	c.Data["json"] = res
 	c.ServeJSON()

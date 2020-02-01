@@ -1,3 +1,4 @@
+// Package routers module
 // @APIVersion 0.4.0
 // @Title TeklifSTS Sistem API
 // @Description TeklifSTS sistemi icin gerekli metodlari icerir.
@@ -15,9 +16,9 @@ import (
 
 func init() {
 	ns := beego.NewNamespace("/v1",
-		beego.NSNamespace("/kullanici",
+		beego.NSNamespace("/user",
 			beego.NSInclude(
-				&controllers.KullaniciController{},
+				&controllers.UserController{},
 			),
 		),
 		beego.NSNamespace("/teklif",
