@@ -13,25 +13,25 @@
         <div class="profile__info">
           <span class="profile__itemtitle">E-Postanız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profil.eposta">
+            <input type="text" v-model="profile.email">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Adınız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profil.adi">
+            <input type="text" v-model="profile.firstName">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Soyadınız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profil.soyadi">
+            <input type="text" v-model="profile.lastName">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Telefon Numaranız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profil.telefon">
+            <input type="text" v-model="profile.phone">
           </span>
         </div>
       </div>
@@ -60,19 +60,19 @@ export default {
   name: 'Profil',
   data() {
     return {
-      profil: {
+      profile: {
         id: null,
-        eposta: null,
-        adi: null,
-        soyadi: null,
-        telefon: null
+        email: null,
+        firstName: null,
+        lastName: null,
+        phone: null
       }
     }
   },
   methods: {
     duzenle: function() {
-      console.log(this.profil);
-      fetch(process.env.VUE_APP_API + "kullanici/ekle", {
+      console.log(this.profile);
+      fetch(process.env.VUE_APP_API + "user/ekle", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -80,18 +80,18 @@ export default {
         },
         mode: 'cors',
         cache: 'default',
-        body: JSON.stringify({"id": this.profil.id})
+        body: JSON.stringify({"id": this.profile.id})
       })
       .then((res) => { return res.json() })
       .then((data) => { console.log(data) })
     }
   },
   created: function() {
-    fetch(process.env.VUE_APP_API + "kullanici/bilgi/1")
+    fetch(process.env.VUE_APP_API + "user/bilgi/1")
     .then((res) => { return res.json(); })
     .then((res) => {
       if (res.status) {
-        this.profil = res.data;
+        this.profile = res.data;
       } else {
         alert(res.data.error);
       }

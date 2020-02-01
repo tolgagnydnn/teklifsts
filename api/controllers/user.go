@@ -15,7 +15,7 @@ type UserController struct {
 // Login function
 // @Title Login
 // @Description Kullanicinin sisteme giris islemlerini yapar.
-// @Param body body models.Kullanici true "kullanici model bilgisi"
+// @Param body body models.User true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /login [post]
 func (c *UserController) Login() {
@@ -40,7 +40,7 @@ func (c *UserController) Login() {
 // Duzenle function
 // @Title Ekle
 // @Description Yeni kullanici bilgisi ekler.
-// @Param body body models.Kullanici true "kullanici model bilgisi"
+// @Param body body models.User true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /duzenle [post]
 func (c *UserController) Duzenle() {
@@ -59,7 +59,7 @@ func (c *UserController) Duzenle() {
 // Ekle function
 // @Title Ekle
 // @Description Yeni kullanici bilgisi ekler.
-// @Param body body models.Kullanici true "kullanici model bilgisi"
+// @Param body body models.User true "kullanici model bilgisi"
 // @Success 200 {object} models.Kullanici
 // @router /ekle [post]
 func (c *UserController) Ekle() {
@@ -79,7 +79,7 @@ func (c *UserController) Ekle() {
 // @Title Bilgi
 // @Description Kullanici bilgilerini getirir.
 // @Param id path string true "Kullanici ID bilgisi"
-// @Success 200 {object} models.Kullanici
+// @Success 200 {object} models.User
 // @router /bilgi/:id [get]
 func (c *UserController) Bilgi() {
 	var userID, _ = c.GetInt(":id")
