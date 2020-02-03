@@ -3,8 +3,9 @@
   <section class="login">
   <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-            <h2>TeklifSTS<br><h4>Kolay Teklif Hazırlama Sistemi</h4></h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <p class="login__heading"> TeklifSTS </p>
+            <p class="login__subheading"> Teklif Hazırlama Sistemi </p>
         </div>
     </div>
 

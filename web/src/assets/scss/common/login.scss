@@ -5,6 +5,15 @@
   transform: translate(-50%, -50%);
   text-align: center;
 
+  &__heading {
+    @include mainTitle;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  &__subheading {
+    @include mainContent;
+    font-size: 10px;
+  }
   &__form {
     border: solid 1px #dddd;
     padding: 1.5rem;
