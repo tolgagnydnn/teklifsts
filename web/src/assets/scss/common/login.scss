@@ -1,10 +1,8 @@
 .login {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
   &__heading {
     @include mainTitle;
     font-weight: 800;
@@ -69,14 +67,14 @@
   }
   &__btn {
     float: right;
-  }
-  button {
-    background: $green;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 5px 15px;
-    font-size: 13px;
+    button {
+      background: $green;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 5px 15px;
+      font-size: 13px;
+    }
   }
   &__register{
     margin-top:70px;
@@ -90,3 +88,18 @@
     }
   }
 }
+
+
+
+/*transition*/
+  .fade-enter {
+    opacity: 0.3;
+  }
+  .fade-enter-active {
+    transition: opacity .7s ease;
+  }
+  .fade-leave-active {
+    transition: opacity .7s ease;
+    opacity: 0;
+  }
+/*transition*/

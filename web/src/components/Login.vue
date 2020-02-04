@@ -45,7 +45,7 @@
           </div>
 
           <div class="login__register">
-            <a href="#" @click="register"> Hemen Üye Olun </a>
+            <a href="#" @click="openregister"> Hemen Üye Olun </a>
           </div>
 
         </form>
@@ -53,17 +53,29 @@
     </div>
   </div>
   <p style="text-align:center;margin-top:10px">Sürüm: {{ appVersion }}</p>
+
+  <transition name="fade" appear>
+    <appregister v-if="showmodal" @closeregister="closemodal($event)"> </appregister>
+  </transition>
 </section>
+
+
+
 </template>
 
 
 
 <script>
 import packageJson from '../../package.json';
+import Register from './Register'
 export default{
+    components:{
+      "appregister":Register
+    },
     data() {
       return {
         message: '',
+        showmodal:false,
         login: {
           email: '',
           password: ''
@@ -72,9 +84,6 @@ export default{
     },
     methods:{
       successLogin(){
-        console.log("--> Email: ", this.login.email);
-        console.log("--> Password: ", this.login.password);
-
         fetch(process.env.VUE_APP_API + "user/login", {
           method: 'POST',
           headers: {
@@ -91,14 +100,14 @@ export default{
             if (data.status == false) {
                 this.message = data.error;
                 console.log(data.error);
-                //this.$router.push({name:"login"});
             }
         })
-
-        //this.$router.push({name:"dashboard"});
       },
-      register(){
-        this.$router.push({name:"register"});
+      openregister(){
+        this.showmodal = true
+      },
+      closemodal(){
+        this.showmodal = false
       }
     },
     computed: {
