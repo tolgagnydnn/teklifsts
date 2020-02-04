@@ -7,10 +7,10 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["api/controllers:TeklifController"] = append(beego.GlobalControllerRouter["api/controllers:TeklifController"],
+    beego.GlobalControllerRouter["api/controllers:ProposalController"] = append(beego.GlobalControllerRouter["api/controllers:ProposalController"],
         beego.ControllerComments{
             Method: "GetAll",
-            Router: `/`,
+            Router: `/list`,
             AllowHTTPMethods: []string{"get"},
             MethodParams: param.Make(),
             Filters: nil,

@@ -6,18 +6,18 @@ import (
 	"github.com/astaxie/beego"
 )
 
-// TeklifController struct
-type TeklifController struct {
+// ProposalController struct
+type ProposalController struct {
 	beego.Controller
 }
 
 // GetAll function
 // @Title GetAll
 // @Description tum teklif kayitlarini getirir.
-// @Success 200 {object} models.Teklif
-// @router / [get]
-func (c *TeklifController) GetAll() {
-	var teklifler = models.TeklifListe()
+// @Success 200 {object} models.Proposal
+// @router /list [get]
+func (c *ProposalController) GetAll() {
+	var teklifler = models.GetProposals()
 
 	c.Data["json"] = teklifler
 	c.ServeJSON()

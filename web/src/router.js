@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Dashboard from './components/Dashboard.vue'
-import TenderList from './components/tender/List.vue'
+import ProposalList from './components/tender/List.vue'
 import CustomerList from './components/customer/List.vue'
 import Profile from './components/Profile.vue'
 import Login from './components/Login.vue'
@@ -32,10 +32,10 @@ const routes = [
         }
     },
     {
-        path: '/tender/list',
-        name: "tender",
+        path: '/proposal/list',
+        name: "proposal",
         components:{
-          default:TenderList,
+          default:ProposalList,
           "headertop":Header
         }
     },
