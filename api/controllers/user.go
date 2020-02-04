@@ -16,7 +16,7 @@ type UserController struct {
 // @Title Login
 // @Description Kullanicinin sisteme giris islemlerini yapar.
 // @Param body body models.User true "kullanici model bilgisi"
-// @Success 200 {object} models.Kullanici
+// @Success 200 {object} models.User
 // @router /login [post]
 func (c *UserController) Login() {
 	var user models.User
@@ -41,7 +41,7 @@ func (c *UserController) Login() {
 // @Title Ekle
 // @Description Yeni kullanici bilgisi ekler.
 // @Param body body models.User true "kullanici model bilgisi"
-// @Success 200 {object} models.Kullanici
+// @Success 200 {object} models.User
 // @router /duzenle [post]
 func (c *UserController) Duzenle() {
 	var user models.User
@@ -60,7 +60,7 @@ func (c *UserController) Duzenle() {
 // @Title Ekle
 // @Description Yeni kullanici bilgisi ekler.
 // @Param body body models.User true "kullanici model bilgisi"
-// @Success 200 {object} models.Kullanici
+// @Success 200 {object} models.User
 // @router /ekle [post]
 func (c *UserController) Ekle() {
 	var user models.User
