@@ -8,6 +8,8 @@
         </div>
     </div>
 
+    <h2>**********{{ message }}***********</h2>
+
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
         <form class="login__form">
@@ -20,7 +22,7 @@
                   <i class="fas fa-envelope"> </i>
                 </div>
               </span>
-              <input v-model.trim="login.eposta" class="login__input" type="email" placeholder="Email Giriniz" />
+              <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" />
             </div>
           </div>
           <div class="form-group py-2">
@@ -30,7 +32,7 @@
                   <i class="fas fa-lock"> </i>
                 </div>
               </span>
-              <input v-model="login.sifre" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
+              <input v-model="login.password" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
             </div>
           </div>
           <div class="login__forgotpassword">
@@ -38,7 +40,7 @@
           </div>
 
           <div class="login__btn">
-            <button type="submit" @click="successLogin"> Giriş Yap </button>
+            <button  @click.prevent="successLogin"> Giriş Yap </button>
           </div>
 
           <div class="login__register">
@@ -58,17 +60,41 @@
 <script>
 import packageJson from '../../package.json';
 export default{
-    data(){
+    data() {
       return {
-        login:{
-          eposta:"",
-          sifre:""
+        message: '',
+        login: {
+          email: '',
+          password: ''
         }
       }
     },
     methods:{
       successLogin(){
-        this.$router.push({name:"dashboard"});
+        console.log("--> Email: ", this.login.email);
+        console.log("--> Password: ", this.login.password);
+
+        fetch(process.env.VUE_APP_API + "user/login", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          mode: 'cors',
+          cache: 'default',
+          body: JSON.stringify({"email": this.login.email, "password": this.login.password})
+        })
+        .then((res) => { return res.json() })
+        .then((data) => {
+            console.log(data);
+            if (data.status == false) {
+                this.message = data.error;
+                console.log(data.error);
+                //this.$router.push({name:"login"});
+            }
+        })
+
+        //this.$router.push({name:"dashboard"});
       },
       register(){
         this.$router.push({name:"register"});
