@@ -57,7 +57,7 @@
               <button class="registermodal__btn" type="submit"> Üye Ol </button>
             </div>
             <div>
-              <button class="registermodal__close" @click="$emit('closeregister')"> <i class="fas fa-times"> </i> </button>
+              <button class="registermodal__close" @click="closeregister"> <i class="fas fa-times"> </i> </button>
             </div>
           </form>
         </div>
@@ -66,5 +66,19 @@
 
 
 <script>
+
+import {eventBus} from '../main'
+export default {
+  data(){
+    return {
+
+    }
+  },
+  methods:{
+    closeregister() {
+      eventBus.$emit("registerclose");
+    }
+  }
+}
 
 </script>

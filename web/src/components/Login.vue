@@ -55,7 +55,7 @@
   <p style="text-align:center;margin-top:10px">Sürüm: {{ appVersion }}</p>
 
   <transition name="fade" appear>
-    <appregister v-if="showmodal" @closeregister="closemodal($event)"> </appregister>
+    <appregister v-if="showmodal"> </appregister>
   </transition>
 </section>
 
@@ -68,6 +68,7 @@
 <script>
 import packageJson from '../../package.json';
 import Register from './Register'
+import {eventBus} from '../main'
 export default{
     components:{
       "appregister":Register
@@ -105,10 +106,12 @@ export default{
       },
       openregister(){
         this.showmodal = true
-      },
-      closemodal(){
-        this.showmodal = false
       }
+    },
+    created(){
+      eventBus.$on("registerclose", () => {
+        this.showmodal = false
+      });
     },
     computed: {
       appVersion() {
