@@ -84,7 +84,7 @@ export default{
     },
     methods:{
       successLogin(){
-        fetch(process.env.VUE_APP_API + "user/login", {
+        fetch(process.env.VUE_APP_API + `user/login?email=${this.login.email}&password=${this.login.password}`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -92,7 +92,6 @@ export default{
           },
           mode: 'cors',
           cache: 'default',
-          body: JSON.stringify({"email": this.login.email, "password": this.login.password})
         })
         .then((res) => { return res.json() })
         .then((data) => {
@@ -100,6 +99,8 @@ export default{
             if (data.status == false) {
                 this.message = data.error;
                 console.log(data.error);
+            } else {
+                this.$router.push({name:"dashboard"})
             }
         })
       },
