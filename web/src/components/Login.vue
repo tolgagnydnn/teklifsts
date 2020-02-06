@@ -107,16 +107,7 @@ export default{
       },
       openregister(){
         this.showmodal = true
-<<<<<<< HEAD
       },
-    },
-    created(){
-      eventBus.$on("registerclose", () => {
-        this.showmodal = false
-      })
-=======
-      }
->>>>>>> c4006a9b47e2f9599e8fcff96289989014554ad1
     },
     created(){
       eventBus.$on("registerclose", () => {

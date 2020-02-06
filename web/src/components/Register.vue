@@ -74,19 +74,4 @@ export default {
     }
   }
 }
-
-import {eventBus} from '../main'
-export default {
-  data(){
-    return {
-
-    }
-  },
-  methods:{
-    closeregister() {
-      eventBus.$emit("registerclose");
-    }
-  }
-}
-
 </script>
