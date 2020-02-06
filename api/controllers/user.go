@@ -3,6 +3,7 @@ package controllers
 import (
 	"api/models"
 	"encoding/json"
+	"fmt"
 
 	"github.com/astaxie/beego"
 )
@@ -15,15 +16,21 @@ type UserController struct {
 // Login function
 // @Title Login
 // @Description Kullanicinin sisteme giris islemlerini yapar.
-// @Param body body models.User true "kullanici model bilgisi"
+// @Param email query string true "kullanici eposta bilgisi"
+// @Param password query string true "kullanici parola bilgisi"
 // @Success 200 {object} models.User
 // @router /login [post]
 func (c *UserController) Login() {
-	var user models.User
-	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
+	var email = c.GetString("email")
+	var password = c.GetString("password")
+	//json.Unmarshal(c.Ctx.Input.RequestBody, &login)
+
+	fmt.Println("----> ", email)
+
+	user, ok := models.CheckUser(email, password)
 
 	var res models.JSONResult
-	if user.Email == "demo@demo.com" && user.Password == "demo" {
+	if ok {
 		res.Status = true
 		res.Error = ""
 		res.Data = user

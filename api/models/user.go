@@ -29,3 +29,19 @@ func GetUser(userID int) User {
 	}
 	return u
 }
+
+// CheckUser function
+func CheckUser(email string, password string) (User, bool) {
+	if email == "demo@demo.com" && password == "demo" {
+		var u = User{
+			ID:        1,
+			Email:     "zafercelenk@gmail.com",
+			Password:  "demo",
+			FirstName: "Zafer",
+			LastName:  "Çelenk",
+			Phone:     "+90 544 245 75 99",
+		}
+		return u, true
+	}
+	return nil, false
+}
