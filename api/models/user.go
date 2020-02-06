@@ -43,5 +43,6 @@ func CheckUser(email string, password string) (User, bool) {
 		}
 		return u, true
 	}
-	return nil, false
+	var user User
+	return user, false
 }
