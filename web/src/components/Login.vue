@@ -69,6 +69,8 @@
 import packageJson from '../../package.json';
 import Register from './Register'
 import {eventBus} from '../main'
+import axios from 'axios'
+
 export default{
     components:{
       "appregister":Register
@@ -84,7 +86,17 @@ export default{
       }
     },
     methods:{
-      successLogin(){
+      successLogin() {
+          axios.post(process.env.VUE_APP_API + `user/login?email=${this.login.email}&password=${this.login.password}`)
+            .then((res) => {
+                console.log(res)
+                if (res.data.status) {
+                    this.$router.push({name:"dashboard"})
+                } else {
+                    this.message = res.data.error;
+                }
+            })
+          /*
         fetch(process.env.VUE_APP_API + `user/login?email=${this.login.email}&password=${this.login.password}`, {
           method: 'POST',
           headers: {
@@ -103,7 +115,7 @@ export default{
             } else {
                 this.$router.push({name:"dashboard"})
             }
-        })
+        })*/
       },
       openregister(){
         this.showmodal = true
