@@ -21,9 +21,9 @@ func init() {
 				&controllers.UserController{},
 			),
 		),
-		beego.NSNamespace("/proposal",
+		beego.NSNamespace("/offer",
 			beego.NSInclude(
-				&controllers.ProposalController{},
+				&controllers.OfferController{},
 			),
 		),
 	)

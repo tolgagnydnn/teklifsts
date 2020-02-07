@@ -12,7 +12,7 @@
             <router-link active-class="active" :to="{name: 'dashboard'}" class="nav-link" exact>Pano</router-link>
           </li>
           <li class="nav-item">
-            <router-link active-class="active"  to="/tender/list" class="nav-link" exact>Teklif</router-link>
+            <router-link active-class="active"  to="/offer/list" class="nav-link" exact>Teklif</router-link>
           </li>
           <li class="nav-item">
             <router-link active-class="active"  to="/customer/list" class="nav-link" exact>Müşteri</router-link>

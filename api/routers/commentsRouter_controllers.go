@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["api/controllers:ProposalController"] = append(beego.GlobalControllerRouter["api/controllers:ProposalController"],
+    beego.GlobalControllerRouter["api/controllers:OfferController"] = append(beego.GlobalControllerRouter["api/controllers:OfferController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: `/list`,

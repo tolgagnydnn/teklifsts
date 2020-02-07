@@ -10,7 +10,7 @@ import (
 func init() {
 	corsHandler := cors.Allow(&cors.Options{
 		//AllowAllOrigins:  true,
-		AllowOrigins:     []string{"https://*.teklifsts.tk"},
+		AllowOrigins:     []string{"http://127.0.0.1:8080", "http://*.teklifsts.tk"},
 		AllowMethods:     []string{"GET", "POST"},
 		AllowHeaders:     []string{"Origin", "Content-Type"},
 		ExposeHeaders:    []string{"Content-Length"},
