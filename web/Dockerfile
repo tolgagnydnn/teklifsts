@@ -1,23 +1,16 @@
-FROM node:13-slim
-
-RUN apt-get -y update \
-	&& apt-get install -y git
-
-RUN npm install @vue/cli -g
-
-RUN mkdir -p /app/web
-
-WORKDIR /app/web
-
+# develop stage
+FROM node:13-slim as develop-stage
+WORKDIR /app
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
 
-EXPOSE 8080
+# build stage
+FROM develop-stage as build-stage
+RUN npm build
 
-# USER node
-
-# switch to npm if you chose it as package manager
-CMD ["npm", "run", "serve"]
+# production stage
+FROM nginx:1.15.7-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
