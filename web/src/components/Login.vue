@@ -52,7 +52,7 @@
       </div>
     </div>
   </div>
-  <p style="text-align:center;margin-top:10px">Sürüm: {{ appVersion }}</p>
+  <p class="login__version" >Sürüm: {{ appVersion }}</p>
 
   <transition name="fade" appear>
     <appregister v-if="showmodal"> </appregister>
