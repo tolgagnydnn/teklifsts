@@ -77,7 +77,7 @@
 
 <script>
 import {eventBus} from '../main';
-import axios from 'axios'
+import customAxios from '../customaxios';
 export default {
   data(){
     return {
@@ -96,7 +96,7 @@ export default {
       eventBus.$emit('registerclose');
     },
     successRegister(){
-      axios.post("http://jsonplaceholder.typicode.com/posts", { ...this.register})
+      customAxios.post("/posts", { ...this.register})
       .then(response => {
         console.log(response);
       })
