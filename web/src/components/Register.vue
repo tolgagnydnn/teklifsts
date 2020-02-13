@@ -9,7 +9,7 @@
                     <i class="fas fa-envelope"> </i>
                   </div>
                 </span>
-                <input  v-model="register.email" class="registermodal__input" type="email" placeholder="Email Giriniz" />
+                <input  v-model="register.email" class="registermodal__input" type="email" placeholder="Email Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -19,7 +19,7 @@
                     <i class="fas fa-user"> </i>
                   </div>
                 </span>
-                <input v-model="register.name" class="registermodal__input" type="text" placeholder="Adınızı Giriniz" />
+                <input v-model="register.firstName" class="registermodal__input" type="text" placeholder="Adınızı Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -29,7 +29,7 @@
                     <i class="fas fa-user"> </i>
                   </div>
                 </span>
-                <input  v-model="register.surname" class="registermodal__input" type="text" placeholder="Soyadınızı Giriniz" />
+                <input  v-model="register.lastName" class="registermodal__input" type="text" placeholder="Soyadınızı Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -39,7 +39,7 @@
                     <i class="fas fa-phone"> </i>
                   </div>
                 </span>
-                <input  v-model="register.telephone" class="registermodal__input" type="text" autocomplete="off" placeholder="Telefon Numaranızı Giriniz" />
+                <input  v-model="register.phone" class="registermodal__input" type="text" autocomplete="off" placeholder="Telefon Numaranızı Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -49,7 +49,7 @@
                     <i class="fas fa-lock"> </i>
                   </div>
                 </span>
-                <input  v-model="register.password" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Giriniz" />
+                <input  v-model="register.password" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -59,7 +59,7 @@
                     <i class="fas fa-lock"> </i>
                   </div>
                 </span>
-                <input  v-model="register.passwordagain" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Tekrar Giriniz" />
+                <input  v-model="register.passwordagain" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Tekrar Giriniz" required/>
               </div>
             </div>
 
@@ -83,9 +83,9 @@ export default {
     return {
       register: {
         email:'',
-        name:'',
-        surname:'',
-        telephone:'',
+        firstName:'',
+        lastName:'',
+        phone:'',
         password:'',
         passwordagain:''
       }
@@ -96,10 +96,11 @@ export default {
       eventBus.$emit('registerclose');
     },
     successRegister(){
-      customAxios.post("/posts", { ...this.register})
+      customAxios.post("user/ekle", { ...this.register})
       .then(response => {
         console.log(response);
       })
+      .catch(e => console.log(e));
     }
   }
 }

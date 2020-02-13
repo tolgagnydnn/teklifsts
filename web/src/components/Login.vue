@@ -69,7 +69,7 @@
 import packageJson from '../../package.json';
 import Register from './Register'
 import {eventBus} from '../main'
-import axios from 'axios'
+import customAxios from '../customaxios'
 
 export default{
     components:{
@@ -87,9 +87,8 @@ export default{
     },
     methods:{
       successLogin() {
-          axios.post(process.env.VUE_APP_API + `user/login?email=${this.login.email}&password=${this.login.password}`)
+          customAxios.post('user/login', {...this.login})
             .then((res) => {
-                console.log(res)
                 if (res.data.status) {
                     this.$router.push({name:"dashboard"})
                 } else {

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 const instance = axios.create({
-  baseURL:"http://jsonplaceholder.typicode.com"
+  baseURL:"http://api.teklifsts.tk/v1/"
 });
 
 
