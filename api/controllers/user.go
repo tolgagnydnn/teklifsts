@@ -4,6 +4,7 @@ import (
 	"api/models"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/astaxie/beego"
 )
@@ -63,20 +64,29 @@ func (c *UserController) Duzenle() {
 	c.ServeJSON()
 }
 
-// Ekle function
-// @Title Ekle
+// Add function
+// @Title Add
 // @Description Yeni kullanici bilgisi ekler.
 // @Param body body models.User true "kullanici model bilgisi"
-// @Success 200 {object} models.User
-// @router /ekle [post]
-func (c *UserController) Ekle() {
+// @Success 200 {object} models.JSONResult
+// @router /add [post]
+func (c *UserController) Add() {
 	var user models.User
 	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
 
+	user.Created = time.Now()
+	userID, err := models.AddUser(user)
+
 	var res models.JSONResult
-	res.Status = true
-	res.Error = ""
-	res.Data = user
+	if userID > 0 {
+		res.Status = true
+		res.Error = ""
+		res.Data = models.GetUser(int64(userID))
+	} else {
+		res.Status = false
+		res.Error = "Kullanıcı kayıt işleminde hatalar oluştu. Hata: " + err.Error()
+		res.Data = ""
+	}
 
 	c.Data["json"] = res
 	c.ServeJSON()
@@ -91,7 +101,7 @@ func (c *UserController) Ekle() {
 func (c *UserController) Bilgi() {
 	var userID, _ = c.GetInt(":id")
 
-	var user = models.GetUser(userID)
+	var user = models.GetUser(int64(userID))
 
 	var res models.JSONResult
 	res.Status = true
