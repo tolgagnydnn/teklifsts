@@ -52,16 +52,6 @@
                 <input  v-model="register.password" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Giriniz" required/>
               </div>
             </div>
-            <div class="form-group py-2">
-              <div class="mb-0 input-group">
-                <span class="registermodal__prepend">
-                  <div class="registermodal__icon">
-                    <i class="fas fa-lock"> </i>
-                  </div>
-                </span>
-                <input  v-model="register.passwordagain" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Tekrar Giriniz" required/>
-              </div>
-            </div>
 
             <div>
               <button @click.prevent="successRegister" class="registermodal__btn" type="submit"> Üye Ol </button>
@@ -87,28 +77,15 @@ export default {
         lastName:'',
         phone:'',
         password:'',
-        passwordagain:''
       }
     }
   },
   methods:{
     closeregister(){
-        axios.post(process.env.VUE_APP_API + "user/ekle", {
-            email: 'test@test.com',
-            firstName: 'asli',
-            id: 0,
-            lastName: 'sen',
-            password: '123',
-            phone: '23445534434'
-        })
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((e) => { console.log(e) })
       eventBus.$emit('registerclose');
     },
     successRegister(){
-      customAxios.post("user/ekle", { ...this.register})
+      customAxios.post("user/add", { ...this.register})
       .then(response => {
         console.log(response);
       })
