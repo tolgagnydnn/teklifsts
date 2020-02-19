@@ -93,28 +93,11 @@ export default{
                     this.$router.push({name:"dashboard"})
                 } else {
                     this.message = res.data.error;
+                    setTimeout(() => {
+                    this.message = ''
+                  }, 3000)
                 }
             })
-          /*
-        fetch(process.env.VUE_APP_API + `user/login?email=${this.login.email}&password=${this.login.password}`, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          mode: 'cors',
-          cache: 'default',
-        })
-        .then((res) => { return res.json() })
-        .then((data) => {
-            console.log(data);
-            if (data.status == false) {
-                this.message = data.error;
-                console.log(data.error);
-            } else {
-                this.$router.push({name:"dashboard"})
-            }
-        })*/
       },
       openregister(){
         this.showmodal = true

@@ -71,6 +71,7 @@ import customAxios from '../customaxios';
 export default {
   data(){
     return {
+      message:'',
       register: {
         email:'',
         firstName:'',
@@ -86,8 +87,8 @@ export default {
     },
     successRegister(){
       customAxios.post("user/add", { ...this.register})
-      .then(response => {
-        console.log(response);
+      .then(res => {
+        console.log(res);
       })
       .catch(e => console.log(e));
     }
