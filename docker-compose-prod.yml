@@ -6,7 +6,7 @@ services:
             context: ./web
             target: 'production-stage'
         ports:
-            - 8080:80
+            - 80:80
 
     api:
         build: ./api
