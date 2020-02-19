@@ -93,6 +93,18 @@ export default {
   },
   methods:{
     closeregister(){
+        axios.post(process.env.VUE_APP_API + "user/ekle", {
+            email: 'test@test.com',
+            firstName: 'asli',
+            id: 0,
+            lastName: 'sen',
+            password: '123',
+            phone: '23445534434'
+        })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((e) => { console.log(e) })
       eventBus.$emit('registerclose');
     },
     successRegister(){
