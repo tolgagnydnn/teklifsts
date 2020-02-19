@@ -1,60 +1,60 @@
 <template>
 
   <section class="login">
-  <div class="container">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <p class="login__heading"> TeklifSTS </p>
+              <p class="login__subheading"> Teklif Hazırlama Sistemi </p>
+          </div>
+      </div>
+
+      <p class="login__error">{{ message }}</p>
+
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <p class="login__heading"> TeklifSTS </p>
-            <p class="login__subheading"> Teklif Hazırlama Sistemi </p>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
+          <form class="login__form">
+            <img src="images/userlogo.png" />
+            <h1 class="login__title"> Hoşgeldiniz </h1>
+            <div class="form-group py-2">
+              <div class="mb-0 input-group">
+                <span class="login__prepend">
+                  <div class="login__icon">
+                    <i class="fas fa-envelope"> </i>
+                  </div>
+                </span>
+                <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" />
+              </div>
+            </div>
+            <div class="form-group py-2">
+              <div class="mb-0 input-group">
+                <span class="login__prepend">
+                  <div class="login__icon">
+                    <i class="fas fa-lock"> </i>
+                  </div>
+                </span>
+                <input v-model="login.password" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
+              </div>
+            </div>
+            <div class="login__forgotpassword">
+              <a href="#" class="login__password"> Şifremi Unuttum </a>
+            </div>
+
+            <div class="login__btn">
+              <button  @click.prevent="successLogin"> Giriş Yap </button>
+            </div>
+
+            <div class="login__register">
+              <a href="#" @click="openregister"> Hemen Üye Olun </a>
+            </div>
+
+          </form>
         </div>
-    </div>
-
-    <h2>**********{{ message }}***********</h2>
-
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-        <form class="login__form">
-          <img src="images/userlogo.png" />
-          <h1 class="login__title"> Hoşgeldiniz </h1>
-          <div class="form-group py-2">
-            <div class="mb-0 input-group">
-              <span class="login__prepend">
-                <div class="login__icon">
-                  <i class="fas fa-envelope"> </i>
-                </div>
-              </span>
-              <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" />
-            </div>
-          </div>
-          <div class="form-group py-2">
-            <div class="mb-0 input-group">
-              <span class="login__prepend">
-                <div class="login__icon">
-                  <i class="fas fa-lock"> </i>
-                </div>
-              </span>
-              <input v-model="login.password" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
-            </div>
-          </div>
-          <div class="login__forgotpassword">
-            <a href="#" class="login__password"> Şifremi Unuttum </a>
-          </div>
-
-          <div class="login__btn">
-            <button  @click.prevent="successLogin"> Giriş Yap </button>
-          </div>
-
-          <div class="login__register">
-            <a href="#" @click="openregister"> Hemen Üye Olun </a>
-          </div>
-
-        </form>
       </div>
     </div>
-  </div>
-  <p class="login__version" >Sürüm: {{ appVersion }}</p>
+    <p class="login__version" >Sürüm: {{ appVersion }}</p>
 
-  <transition name="fade" appear>
+  <transition name="fade-up" appear>
     <appregister v-if="showmodal"> </appregister>
   </transition>
 </section>
