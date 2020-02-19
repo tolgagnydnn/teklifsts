@@ -1,6 +1,6 @@
 <template>
         <div class="registermodal">
-          <form class="registermodal__form">
+          <form @submit.prevent="successRegister" class="registermodal__form">
             <img class="registermodal__img" src="images/registerlogo.png" />
             <div class="form-group py-2">
               <div class="mb-0 input-group">
@@ -54,7 +54,7 @@
             </div>
 
             <div>
-              <button @click.prevent="successRegister" class="registermodal__btn" type="submit"> Üye Ol </button>
+              <button class="registermodal__btn" type="submit"> Üye Ol </button>
             </div>
             <div>
               <button class="registermodal__close" @click="closeregister"> <i class="fas fa-times"> </i> </button>

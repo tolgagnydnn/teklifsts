@@ -13,7 +13,7 @@
 
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-          <form class="login__form">
+          <form  @submit.prevent="successLogin" method="POST" class="login__form">
             <img src="images/userlogo.png" />
             <h1 class="login__title"> Hoşgeldiniz </h1>
             <div class="form-group py-2">
@@ -23,7 +23,7 @@
                     <i class="fas fa-envelope"> </i>
                   </div>
                 </span>
-                <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" />
+                <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -33,7 +33,7 @@
                     <i class="fas fa-lock"> </i>
                   </div>
                 </span>
-                <input v-model="login.password" class="login__input" type="password" autocomplete="off" placeholder="Şifre Giriniz" />
+                <input v-model="login.password" class="login__input" type="password"  placeholder="Şifre Giriniz" required/>
               </div>
             </div>
             <div class="login__forgotpassword">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="login__btn">
-              <button  @click.prevent="successLogin"> Giriş Yap </button>
+              <button> Giriş Yap </button>
             </div>
 
             <div class="login__register">
