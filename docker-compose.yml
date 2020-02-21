@@ -18,7 +18,7 @@ services:
             - 8090:8090
         volumes:
             - ./api:/go/src/api
-            
+
     pg:
         image: postgres:12.1
         ports:
