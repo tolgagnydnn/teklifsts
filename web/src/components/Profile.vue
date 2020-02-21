@@ -5,9 +5,8 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
         <div>
           <span class="profile__title">Kişisel Bilgilerim</span>
-          <span class="profile__edit">
-            <button @click="duzenle()">Düzenle</button>
-          </span>
+          <span class="profile__edit"> Düzenle </span>
+
           <hr>
         </div>
         <div class="profile__info">

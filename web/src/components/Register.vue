@@ -1,6 +1,6 @@
 <template>
         <div class="registermodal">
-          <form class="registermodal__form">
+          <form @submit.prevent="successRegister" class="registermodal__form">
             <img class="registermodal__img" src="images/registerlogo.png" />
             <div class="form-group py-2">
               <div class="mb-0 input-group">
@@ -9,7 +9,7 @@
                     <i class="fas fa-envelope"> </i>
                   </div>
                 </span>
-                <input  class="registermodal__input" type="email" placeholder="Email Giriniz" />
+                <input  v-model="register.email" class="registermodal__input" type="email" placeholder="Email Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -19,7 +19,7 @@
                     <i class="fas fa-user"> </i>
                   </div>
                 </span>
-                <input  class="registermodal__input" type="email" placeholder="Adınızı Giriniz" />
+                <input v-model="register.firstName" class="registermodal__input" type="text" placeholder="Adınızı Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -29,7 +29,17 @@
                     <i class="fas fa-user"> </i>
                   </div>
                 </span>
-                <input  class="registermodal__input" type="email" placeholder="Soyadınızı Giriniz" />
+                <input  v-model="register.lastName" class="registermodal__input" type="text" placeholder="Soyadınızı Giriniz" required/>
+              </div>
+            </div>
+            <div class="form-group py-2">
+              <div class="mb-0 input-group">
+                <span class="registermodal__prepend">
+                  <div class="registermodal__icon">
+                    <i class="fas fa-phone"> </i>
+                  </div>
+                </span>
+                <input  v-model="register.phone" class="registermodal__input" type="text" autocomplete="off" placeholder="Telefon Numaranızı Giriniz" required/>
               </div>
             </div>
             <div class="form-group py-2">
@@ -39,17 +49,7 @@
                     <i class="fas fa-lock"> </i>
                   </div>
                 </span>
-                <input  class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Giriniz" />
-              </div>
-            </div>
-            <div class="form-group py-2">
-              <div class="mb-0 input-group">
-                <span class="registermodal__prepend">
-                  <div class="registermodal__icon">
-                    <i class="fas fa-lock"> </i>
-                  </div>
-                </span>
-                <input  class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Tekrar Giriniz" />
+                <input  v-model="register.password" class="registermodal__input" type="password" autocomplete="off" placeholder="Şifrenizi Giriniz" required/>
               </div>
             </div>
 
@@ -66,25 +66,31 @@
 
 
 <script>
-import {eventBus} from '../main'
-import axios from 'axios'
-
+import {eventBus} from '../main';
+import customAxios from '../customaxios';
 export default {
+  data(){
+    return {
+      message:'',
+      register: {
+        email:'',
+        firstName:'',
+        lastName:'',
+        phone:'',
+        password:'',
+      }
+    }
+  },
   methods:{
     closeregister(){
-        axios.post(process.env.VUE_APP_API + "user/ekle", {
-            email: 'test@test.com',
-            firstName: 'asli',
-            id: 0,
-            lastName: 'sen',
-            password: '123',
-            phone: '23445534434'
-        })
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((e) => { console.log(e) })
       eventBus.$emit('registerclose');
+    },
+    successRegister(){
+      customAxios.post("user/add", { ...this.register})
+      .then(res => {
+        console.log(res);
+      })
+      .catch(e => console.log(e));
     }
   }
 }

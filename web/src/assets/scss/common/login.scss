@@ -12,6 +12,12 @@
     @include mainContent;
     font-size: 10px;
   }
+  &__error {
+    @include mainContent;
+    font-size: 10px;
+    color: red;
+  }
+
   &__form {
     border: solid 1px #dddd;
     padding: 1.5rem;
@@ -86,6 +92,11 @@
         color: $green;
       }
     }
+  }
+  &__version {
+    @include mainContent;
+    font-size: 10px;
+    margin-top: 15px;
   }
 }
 
