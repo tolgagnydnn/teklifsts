@@ -57,17 +57,10 @@ func GetUser(userID int64) User {
 
 // CheckUser function
 func CheckUser(email string, password string) (User, bool) {
-	if email == "demo@demo.com" && password == "demo" {
-		var u = User{
-			ID:        1,
-			Email:     "zafercelenk@gmail.com",
-			Password:  "demo",
-			FirstName: "Zafer",
-			LastName:  "Çelenk",
-			Phone:     "+90 544 245 75 99",
-		}
-		return u, true
-	}
-	var user User
-	return user, false
+	o := orm.NewOrm()
+
+	var user = User{Email: email, Password: password}
+	o.Read(&user, "Email", "Password")
+
+	return user, user.ID > 0
 }
