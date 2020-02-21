@@ -1,6 +1,8 @@
 # develop stage
 FROM node:13-slim as develop-stage
-WORKDIR /app
+
+WORKDIR /app/web
+
 COPY package*.json ./
 
 RUN npm install

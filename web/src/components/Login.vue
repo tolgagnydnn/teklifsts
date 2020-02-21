@@ -41,7 +41,7 @@
             </div>
 
             <div class="login__btn">
-              <button> Giriş Yap </button>
+               <button  @click.prevent="userLogin"> Giriş Yap </button>
             </div>
 
             <div class="login__register">
@@ -86,9 +86,9 @@ export default{
       }
     },
     methods:{
-      successLogin() {
-          customAxios.post('user/login', {...this.login})
-            .then((res) => {
+      userLogin() {
+          customAxios.post('user/login?email='+ this.login.email +'&password='+ this.login.password)
+            .then(res => {
                 if (res.data.status) {
                     this.$router.push({name:"dashboard"})
                 } else {
@@ -97,6 +97,8 @@ export default{
                     this.message = ''
                   }, 3000)
                 }
+            }).catch(err => {
+                console.log("Error: ", err)
             })
       },
       openregister(){
