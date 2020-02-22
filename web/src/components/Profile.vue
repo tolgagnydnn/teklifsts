@@ -55,6 +55,8 @@
 
 
 <script>
+import customAxios from '../customaxios'
+
 export default {
   name: 'Profil',
   data() {
@@ -86,6 +88,13 @@ export default {
     }
   },
   created: function() {
+    console.log("calisti.....")
+    customAxios.get("user/3")
+    .then(res => {
+      console.log(res)
+      this.profile = res.data.data
+    })
+    /*
     fetch(process.env.VUE_APP_API + "user/bilgi/1")
     .then((res) => { return res.json(); })
     .then((res) => {
@@ -95,6 +104,7 @@ export default {
         alert(res.data.error);
       }
     })
+    */
   }
 }
 </script>
