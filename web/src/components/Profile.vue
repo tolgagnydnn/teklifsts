@@ -89,7 +89,7 @@ export default {
   },
   created: function() {
     console.log("calisti.....")
-    customAxios.get("user/3")
+    customAxios.get("user/1")
     .then(res => {
       console.log(res)
       this.profile = res.data.data
