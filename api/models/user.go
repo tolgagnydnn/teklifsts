@@ -45,6 +45,18 @@ func AddUser(user User) (int64, error) {
 	return id, err
 }
 
+// UpdateUser function
+func UpdateUser(user User) error {
+	o := orm.NewOrm()
+
+	_, err := o.Update(&user, "FirstName", "LastName", "Phone")
+	if err != nil {
+		log.Println("UpdateUser fonksiyonunda hata olustu. Hata: ", err)
+	}
+
+	return err
+}
+
 // GetUser function
 func GetUser(userID int64) User {
 	o := orm.NewOrm()
