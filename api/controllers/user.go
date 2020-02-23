@@ -45,20 +45,39 @@ func (c *UserController) Login() {
 	c.ServeJSON()
 }
 
-// Duzenle function
-// @Title Ekle
-// @Description Yeni kullanici bilgisi ekler.
-// @Param body body models.User true "kullanici model bilgisi"
+// Update function
+// @Title Update
+// @Description Mevcut kullanici bilgisini düzenler.
+// @Param firstName query string true "kullanici adı"
+// @Param lastName	query string true "kullanici soyadı"
+// @Param phone		query string true "kullanici telefon numarası"
 // @Success 200 {object} models.User
-// @router /duzenle [post]
-func (c *UserController) Duzenle() {
-	var user models.User
-	json.Unmarshal(c.Ctx.Input.RequestBody, &user)
+// @router /update/:id [post]
+func (c *UserController) Update() {
+	//var user models.User
+	//json.Unmarshal(c.Ctx.Input.RequestBody, &user)
+
+	var userID, _ = c.GetInt(":id")
+
+	var user = models.User{
+		ID:        int64(userID),
+		FirstName: c.GetString("firstName"),
+		LastName:  c.GetString("lastName"),
+		Phone:     c.GetString("phone"),
+	}
+
+	err := models.UpdateUser(user)
 
 	var res models.JSONResult
-	res.Status = true
-	res.Error = ""
-	res.Data = user
+	if err != nil {
+		res.Status = false
+		res.Error = err.Error()
+		res.Data = nil
+	} else {
+		res.Status = true
+		res.Error = ""
+		res.Data = nil
+	}
 
 	c.Data["json"] = res
 	c.ServeJSON()
@@ -92,13 +111,13 @@ func (c *UserController) Add() {
 	c.ServeJSON()
 }
 
-// Bilgi function
-// @Title Bilgi
+// Get function
+// @Title Get
 // @Description Kullanici bilgilerini getirir.
 // @Param id path string true "Kullanici ID bilgisi"
 // @Success 200 {object} models.User
-// @router /bilgi/:id [get]
-func (c *UserController) Bilgi() {
+// @router /:id [get]
+func (c *UserController) Get() {
 	var userID, _ = c.GetInt(":id")
 
 	var user = models.GetUser(int64(userID))
