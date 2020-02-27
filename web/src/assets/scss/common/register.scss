@@ -8,6 +8,11 @@
   padding: 2rem;
   background: rgba(0,0,0,0.3);
   height: 100vh;
+  &__error {
+    @include mainContent;
+    font-size: 10px;
+    color: red;
+  }
   &__close {
     background: none;
     border:none;

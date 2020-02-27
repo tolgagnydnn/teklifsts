@@ -2,6 +2,7 @@
         <div class="registermodal">
           <form @submit.prevent="successRegister" class="registermodal__form">
             <img class="registermodal__img" src="images/registerlogo.png" />
+              <p  class="registermodal__error"> {{message}} </p>
             <div class="form-group py-2">
               <div class="mb-0 input-group">
                 <span class="registermodal__prepend">
@@ -88,7 +89,15 @@ export default {
     successRegister(){
       customAxios.post("user/add", { ...this.register})
       .then(res => {
-        console.log(res);
+        if (res.data.status) {
+            console.log(res);
+            eventBus.$emit('registerclose');
+        } else {
+            this.message = res.data.error;
+            setTimeout(() => {
+            this.message = ''
+          }, 3000)
+        }
       })
       .catch(e => console.log(e));
     }
