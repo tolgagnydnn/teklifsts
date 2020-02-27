@@ -6,31 +6,30 @@
         <div>
           <span class="profile__title">Kişisel Bilgilerim</span>
           <span class="profile__edit"> Düzenle </span>
-
           <hr>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">E-Postanız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profile.email">
+            <input type="text" v-model="getActiveUser.email">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Adınız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profile.firstName">
+            <input type="text" v-model="getActiveUser.firstName">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Soyadınız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profile.lastName">
+            <input type="text" v-model="getActiveUser.lastName">
           </span>
         </div>
         <div class="profile__info">
           <span class="profile__itemtitle">Telefon Numaranız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="profile.phone">
+            <input type="text" v-model="getActiveUser.phone">
           </span>
         </div>
       </div>
@@ -43,7 +42,7 @@
         </div>
         <div class="profile__password">
           <span class="profile__itemtitle"> Mevcut Şifreniz: </span>
-          <span class="profile__itemcontent"> *******  </span>
+          <span class="profile__itemcontent"> {{getActiveUser.password}}  </span>
         </div>
      </div>
 
@@ -55,7 +54,8 @@
 
 
 <script>
-import customAxios from '../customaxios'
+//import customAxios from '../customaxios'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'Profil',
@@ -70,41 +70,8 @@ export default {
       }
     }
   },
-  methods: {
-    duzenle: function() {
-      console.log(this.profile);
-      fetch(process.env.VUE_APP_API + "user/ekle", {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        mode: 'cors',
-        cache: 'default',
-        body: JSON.stringify({"id": this.profile.id})
-      })
-      .then((res) => { return res.json() })
-      .then((data) => { console.log(data) })
-    }
-  },
-  created: function() {
-    console.log("calisti.....")
-    customAxios.get("user/1")
-    .then(res => {
-      console.log(res)
-      this.profile = res.data.data
-    })
-    /*
-    fetch(process.env.VUE_APP_API + "user/bilgi/1")
-    .then((res) => { return res.json(); })
-    .then((res) => {
-      if (res.status) {
-        this.profile = res.data;
-      } else {
-        alert(res.data.error);
-      }
-    })
-    */
+  computed:{
+      ...mapGetters(['getActiveUser'])
   }
 }
 </script>
