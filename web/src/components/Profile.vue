@@ -11,7 +11,7 @@
         <div class="profile__info">
           <span class="profile__itemtitle">E-Postanız:</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="getActiveUser.email">
+            <input type="text" :disabled="disabled" v-model="getActiveUser.email">
           </span>
         </div>
         <div class="profile__info">
@@ -61,6 +61,7 @@ export default {
   name: 'Profil',
   data() {
     return {
+      disabled:true,
       profile: {
         id: null,
         email: null,
