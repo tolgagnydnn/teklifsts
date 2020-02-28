@@ -13,7 +13,7 @@
 
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
-          <form  @submit.prevent="successLogin" method="POST" class="login__form">
+          <form  @submit.prevent="userLogin" method="POST" class="login__form">
             <img src="images/userlogo.png" />
             <h1 class="login__title"> Hoşgeldiniz </h1>
             <div class="form-group py-2">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="login__btn">
-               <button  @click.prevent="userLogin"> Giriş Yap </button>
+               <button> Giriş Yap </button>
             </div>
 
             <div class="login__register">
@@ -69,7 +69,7 @@
 import packageJson from '../../package.json';
 import Register from './Register'
 import {eventBus} from '../main'
-import customAxios from '../customaxios'
+//import customAxios from '../customaxios'
 
 export default{
     components:{
@@ -87,19 +87,19 @@ export default{
     },
     methods:{
       userLogin() {
-          customAxios.post('user/login?email='+ this.login.email +'&password='+ this.login.password)
-            .then(res => {
-                if (res.data.status) {
-                    this.$router.push({name:"dashboard"})
-                } else {
-                    this.message = res.data.error;
-                    setTimeout(() => {
-                    this.message = ''
-                  }, 3000)
-                }
-            }).catch(err => {
-                console.log("Error: ", err)
-            })
+        this.$store.dispatch('login',{...this.login, message : this.message}).
+        then((res) => {
+          console.log(res)
+          if(res == 'success'){
+            this.$router.push({name:"dashboard"})
+          }
+          else {
+            this.message = res.data.error
+            setTimeout(() => {
+              this.message = ''
+            }, 3000);
+          }
+        });
       },
       openregister(){
         this.showmodal = true
