@@ -23,7 +23,7 @@
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              Hesabım
+              {{`${getActiveUser.firstName} ${getActiveUser.lastName}`}}
             </a>
             <div class="dropdown-menu">
               <router-link to="/profile" class="dropdown-item">Profil</router-link>
@@ -39,6 +39,11 @@
 
 
 <script>
-
+import {mapGetters} from 'vuex'
+  export default {
+    computed:{
+      ...mapGetters(['getActiveUser'])
+    }
+  }
 
 </script>
