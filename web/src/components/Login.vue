@@ -89,12 +89,11 @@ export default{
       userLogin() {
         this.$store.dispatch('login',{...this.login, message : this.message}).
         then((res) => {
-          console.log(res)
           if(res == 'success'){
             this.$router.push({name:"dashboard"})
           }
           else {
-            this.message = res.data.error
+            this.message = res
             setTimeout(() => {
               this.message = ''
             }, 3000);
