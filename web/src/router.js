@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store/store'
 
 import Dashboard from './components/Dashboard.vue'
 import OfferList from './components/offer/List.vue'
@@ -29,6 +30,13 @@ const routes = [
         components:{
           default:Dashboard,
           "headertop":Header
+        },
+        beforeEnter(to, from, next) {
+          if (store.getters.getActiveUser.id !== undefined) {
+            next()
+          } else {
+            next('/')
+          }
         }
     },
     {
@@ -37,6 +45,13 @@ const routes = [
         components:{
           default:OfferList,
           "headertop":Header
+        },
+        beforeEnter(to, from, next) {
+          if (store.getters.getActiveUser.id !== undefined) {
+            next()
+          } else {
+            next('/')
+          }
         }
     },
     {
@@ -45,6 +60,13 @@ const routes = [
         components:{
           default:CustomerList,
           "headertop":Header
+        },
+        beforeEnter(to, from, next) {
+          if (store.getters.getActiveUser.id !== undefined) {
+            next()
+          } else {
+            next('/')
+          }
         }
     },
     {
@@ -54,6 +76,13 @@ const routes = [
       components:{
         default:Profile,
         "headertop":Header
+      },
+      beforeEnter(to, from, next) {
+        if (store.getters.getActiveUser.id !== undefined) {
+          next()
+        } else {
+          next('/')
+        }
       }
     },
     {
@@ -63,8 +92,16 @@ const routes = [
         components: {
             default: About,
             "headertop": Header
+        },
+        beforeEnter(to, from, next) {
+          if (store.getters.getActiveUser.id !== undefined) {
+            next()
+          } else {
+            next('/')
+          }
         }
-    }
+    },
+
 ]
 
 
@@ -72,10 +109,3 @@ export const router = new Router({
 	mode: "history",
 	routes: routes
 });
-
-router.beforeResolve((to, from, next) => {
-    if (to.name) {
-        //NProgress.start()
-    }
-    next()
-})
