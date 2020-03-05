@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state:{
-    activeUser:[]
+    activeUser: null
   },
   getters: {
     getActiveUser(state) {
@@ -15,16 +15,18 @@ const store = new Vuex.Store({
     }
   },
   mutations:{
-    setActiveUser(state, authData ){
-      state.activeUser = authData
+    setActiveUser(state, user) {
+      state.activeUser = user
     }
   },
   actions:{
-    login(vuexcontext,authData) {
-      return customAxios.post('user/login?email='+ authData.email +'&password='+ authData.password)
+    login(context, user) {
+      return customAxios.post('user/login?email='+ user.email +'&password='+ user.password)
         .then(res => {
+
           if(res.data.status) {
-            vuexcontext.commit('setActiveUser', res.data.data);
+              console.log(res.data)
+            context.commit('setActiveUser', res.data.data);
             return 'success'
           }
           else {

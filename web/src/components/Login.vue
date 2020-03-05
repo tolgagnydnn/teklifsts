@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-              <p class="login__heading"> TeklifSTS </p>
-              <p class="login__subheading"> Teklif Hazırlama Sistemi </p>
+              <p class="login__heading">TeklifSTS</p>
+              <p class="login__subheading">Teklif Hazırlamanın Kolay Yolu</p>
           </div>
       </div>
 
@@ -23,7 +23,7 @@
                     <i class="fas fa-envelope"> </i>
                   </div>
                 </span>
-                <input v-model.trim="login.email" class="login__input" type="email" placeholder="Email Giriniz" required/>
+                <input v-model.trim="user.email" class="login__input" type="email" placeholder="Email Giriniz" required>
               </div>
             </div>
             <div class="form-group py-2">
@@ -33,7 +33,7 @@
                     <i class="fas fa-lock"> </i>
                   </div>
                 </span>
-                <input v-model="login.password" class="login__input" type="password"  placeholder="Şifre Giriniz" required/>
+                <input v-model="user.password" class="login__input" type="password"  placeholder="Şifre Giriniz" required>
               </div>
             </div>
             <div class="login__forgotpassword">
@@ -79,18 +79,19 @@ export default{
       return {
         message: '',
         showmodal:false,
-        login: {
-          email: '',
-          password: ''
+        user: {
+          email: 'demo@demo.com',
+          password: 'demo'
         }
       }
     },
     methods:{
       userLogin() {
-        this.$store.dispatch('login',{...this.login, message : this.message}).
-        then((res) => {
+        this.$store.dispatch('login', this.user)
+        .then(res => {
           if(res == 'success'){
             this.$router.push({name:"dashboard"})
+            console.log("buradayım...")
           }
           else {
             this.message = res

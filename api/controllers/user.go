@@ -3,7 +3,6 @@ package controllers
 import (
 	"api/models"
 	"encoding/json"
-	"fmt"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -19,22 +18,28 @@ type UserController struct {
 // @Description Kullanicinin sisteme giris islemlerini yapar.
 // @Param email query string true "kullanici eposta bilgisi"
 // @Param password query string true "kullanici parola bilgisi"
-// @Success 200 {object} models.User
+// @Success 200 {object} models.Token
 // @router /login [post]
 func (c *UserController) Login() {
 	var email = c.GetString("email")
 	var password = c.GetString("password")
 	//json.Unmarshal(c.Ctx.Input.RequestBody, &login)
 
-	fmt.Println("----> ", email)
-
 	user, ok := models.CheckUser(email, password)
+	var token = "123"
+
+	var tokenModel = models.Token{
+		UserID:    user.ID,
+		FirstName: user.FirstName,
+		LastName:  user.LastName,
+		Token:     token,
+	}
 
 	var res models.JSONResult
 	if ok {
 		res.Status = true
 		res.Error = ""
-		res.Data = user
+		res.Data = tokenModel
 	} else {
 		res.Status = false
 		res.Error = "Eposta adresi veya parola hatalı. Lütfen kontrol ederek tekrar deneyin."

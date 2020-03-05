@@ -18,6 +18,14 @@ type User struct {
 	Created   time.Time `orm:"auto_now_add;type(datetime)" json:"-"`
 }
 
+// Token model
+type Token struct {
+	UserID    int64  `json:"userID"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Token     string `json:"token"`
+}
+
 // JSONResult model
 type JSONResult struct {
 	Status bool        `json:"status"`

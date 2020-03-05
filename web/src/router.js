@@ -32,7 +32,7 @@ const routes = [
           "headertop":Header
         },
         beforeEnter(to, from, next) {
-          if (store.getters.getActiveUser.id !== undefined) {
+          if (store.getters.getActiveUser.userID !== undefined) {
             next()
           } else {
             next('/')
@@ -47,7 +47,7 @@ const routes = [
           "headertop":Header
         },
         beforeEnter(to, from, next) {
-          if (store.getters.getActiveUser.id !== undefined) {
+          if (store.getters.getActiveUser.userID !== undefined) {
             next()
           } else {
             next('/')
@@ -62,7 +62,7 @@ const routes = [
           "headertop":Header
         },
         beforeEnter(to, from, next) {
-          if (store.getters.getActiveUser.id !== undefined) {
+          if (store.getters.getActiveUser.userID !== undefined) {
             next()
           } else {
             next('/')
@@ -78,7 +78,7 @@ const routes = [
         "headertop":Header
       },
       beforeEnter(to, from, next) {
-        if (store.getters.getActiveUser.id !== undefined) {
+        if (store.getters.getActiveUser.userID !== undefined) {
           next()
         } else {
           next('/')
@@ -94,7 +94,7 @@ const routes = [
             "headertop": Header
         },
         beforeEnter(to, from, next) {
-          if (store.getters.getActiveUser.id !== undefined) {
+          if (store.getters.getActiveUser.userID !== undefined) {
             next()
           } else {
             next('/')
