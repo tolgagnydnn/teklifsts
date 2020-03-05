@@ -26,7 +26,7 @@ func (c *UserController) Login() {
 	//json.Unmarshal(c.Ctx.Input.RequestBody, &login)
 
 	user, ok := models.CheckUser(email, password)
-	var token = "123"
+	var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 
 	var tokenModel = models.Token{
 		UserID:    user.ID,
