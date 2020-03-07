@@ -28,4 +28,27 @@ func init() {
 		),
 	)
 	beego.AddNamespace(ns)
+
+	// Filter Token
+	//beego.InsertFilter("/v1/user/profile", beego.BeforeRouter, filterToken)
 }
+
+/*
+func filterToken(ctx *context.Context) {
+	var authToken = ctx.Input.Header("Authorization")
+	// Token seklen kontrol edilmeli
+
+	token, err := jwt.Parse(authToken, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
+		}
+		return []byte(os.Getenv("TEKLIF_SECRET_KEY")), nil
+	})
+
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		fmt.Println(claims["foo"], claims["nbf"])
+	} else {
+		fmt.Println(err)
+	}
+}
+*/

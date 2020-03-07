@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/astaxie/beego"
+	"github.com/dgrijalva/jwt-go"
 )
 
 // UserController struct
 type UserController struct {
-	beego.Controller
+	BaseController
 }
 
 // Login function
@@ -26,13 +26,21 @@ func (c *UserController) Login() {
 	//json.Unmarshal(c.Ctx.Input.RequestBody, &login)
 
 	user, ok := models.CheckUser(email, password)
-	var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+	//var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+
+	var claims = jwt.StandardClaims{
+		ExpiresAt: 15000,
+		Issuer:    user.Email,
+	}
+
+	var token = jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	var tokenString, _ = token.SignedString(SigningKey)
 
 	var tokenModel = models.Token{
 		UserID:    user.ID,
 		FirstName: user.FirstName,
 		LastName:  user.LastName,
-		Token:     token,
+		Token:     tokenString,
 	}
 
 	var res models.JSONResult
