@@ -26,8 +26,8 @@
               {{`${getActiveUser.firstName} ${getActiveUser.lastName}`}}
             </a>
             <div class="dropdown-menu">
-              <router-link to="/profile" class="dropdown-item">Profil</router-link>
-              <router-link to="/" class="dropdown-item">Çıkış</router-link>
+              <router-link to="/profile" class="dropdown-item" exact>Profil</router-link>
+              <router-link to="/" class="dropdown-item" exact>Çıkış</router-link>
             </div>
           </li>
 

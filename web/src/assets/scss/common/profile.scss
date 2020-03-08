@@ -20,6 +20,7 @@
     text-transform: uppercase;
     transition: all 0.4s ease-out;
     background: $black;
+    border-radius: 20px;
     cursor:pointer;
     &:hover {
       box-shadow: 0px 0px 6px $black;
@@ -28,15 +29,28 @@
   &__info, &__password {
     padding-top: 1rem;
   }
+  &__input {
+      max-width: 100%;
+      max-height: 80px;
+      padding: 0px 8px 0px 8px;
+      font-size: 15px;
+      border:solid 1px #ddd;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+  }
   &__itemtitle {
     @include mainTitle;
-    width: 150px;
+    width: 200px;
     display: inline-block;
     line-height: 30px;
     vertical-align: top;
     font-size: 14px;
+    font-weight: 600;
   }
   &__itemcontent {
     @include mainContent;
   }
+
 }

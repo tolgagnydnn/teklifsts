@@ -9,27 +9,27 @@
           <hr>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle">E-Postanız:</span>
+          <span class="profile__itemtitle">E-Postanız</span>
           <span class="profile__itemcontent">
-            <input type="text" :disabled="disabled" v-model="getActiveUser.email">
+            <p> {{getActiveUser.email}} </p>
           </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle">Adınız:</span>
+          <span class="profile__itemtitle">Adınız</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="getActiveUser.firstName">
+            <input type="text" class="profile__input"  v-model="getActiveUser.firstName">
           </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle">Soyadınız:</span>
+          <span class="profile__itemtitle">Soyadınız</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="getActiveUser.lastName">
+            <input type="text" class="profile__input" v-model="getActiveUser.lastName">
           </span>
         </div>
         <div class="profile__info">
-          <span class="profile__itemtitle">Telefon Numaranız:</span>
+          <span class="profile__itemtitle">Telefon Numaranız</span>
           <span class="profile__itemcontent">
-            <input type="text" v-model="getActiveUser.phone">
+            <input type="text" class="profile__input"  v-model="getActiveUser.phone">
           </span>
         </div>
       </div>
@@ -41,8 +41,8 @@
           <hr>
         </div>
         <div class="profile__password">
-          <span class="profile__itemtitle"> Mevcut Şifreniz: </span>
-          <span class="profile__itemcontent"> {{getActiveUser.password}}  </span>
+          <span class="profile__itemtitle"> Mevcut Şifreniz </span>
+          <span class="profile__itemcontent"> ****** </span>
         </div>
      </div>
 
@@ -54,7 +54,7 @@
 
 
 <script>
-//import customAxios from '../customaxios'
+
 import {mapGetters} from 'vuex'
 
 export default {
